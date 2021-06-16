@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de cadastro</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <main>
+        <h1>Formulário de cadastro</h1>
+        <form action="#">
+            <fieldset>
+                <label for="nome">Nome</label>
+                <input id="nome" type="text" value="">
+            </fieldset>
+
+            <fieldset>
+                <label for="email">E-mail</label>
+                <input id="email" type="text" value="">
+            </fieldset>
+
+            <fieldset>
+                <label for="phone">Celular</label>
+                <input id="phone" type="text" value="">
+            </fieldset>
+
+            <fieldset>
+                <label for="curso">Curso</label>
+                <select id="masculino" type="select" name="curso">
+                    <option value="">Escolha uma opção</option>
+                    <option value="1">Javascript</option>
+                    <option value="2">Java</option>
+                    <option value="3">Git avançado</option>
+                </select>
+            </fieldset>
+
+            <fieldset class="group">
+                <legend>Horário</legend>
+                <input id="manha" type="radio" name="horario" value="M"><label for="manha">manhã</label>
+                <input id="tarde" type="radio" name="horario" value="T"><label for="tarde">tarde</label>
+            </fieldset>
+
+            <fieldset class="group">
+                <legend>Interesses</legend>
+                <input id="masculino" type="checkbox" name="genero" value="M"><label for="masculino">e-Cursos</label>
+                <input id="feminino" type="checkbox" name="genero" value="F"><label for="feminino">workshops</label>
+                <input id="outro" type="checkbox" name="genero" value="X"><label for="outro">meetups</label>
+            </fieldset>
+
+            <input type="submit">
+
+        </form>
+    </main>
+</body>
+
+</html>

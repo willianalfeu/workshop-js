@@ -1,58 +1,49 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <title>Formulário de cadastro</title>
-    <link rel="stylesheet" href="css/style.css">    
+    <link rel="stylesheet" href="css/style.css">
+    <script src="/js/script.js"></script>
 </head>
-
-<body>
+<body onload="load()">
     <main>
         <h1>Formulário de cadastro</h1>
         <form id="formCadastro" action="/enviado.html">
             <fieldset>
                 <label for="nome">Nome</label>
-                <input id="nome" type="text" value="">
+                <input type="text" name="nome" id="nome" value="">
             </fieldset>
-
             <fieldset>
                 <label for="email">E-mail</label>
-                <input id="email" type="text" value="">
+                <input type="text" name="email" id="email" value="">
             </fieldset>
-
             <fieldset>
                 <label for="celular">Celular</label>
-                <input id="celular" type="text" value="">
+                <input type="text" name="celular" id="celular" value="">
             </fieldset>
-
             <fieldset>
                 <label for="curso">Curso</label>
-                <select id="curso" type="select" name="curso">
-                    <option value="">Escolha uma opção</option>
+                <select id="curso" name="curso">
+                    <option value="0">Escolha uma opção</option>
                     <option value="1">Javascript</option>
                     <option value="2">Java</option>
                     <option value="3">Git avançado</option>
                 </select>
             </fieldset>
-
             <fieldset class="group">
-                <legend>Horário</legend>
-                <input id="manha" type="radio" name="horario" value="M"><label for="manha">manhã</label>
-                <input id="tarde" type="radio" name="horario" value="T"><label for="tarde">tarde</label>
+                <legend>Opção de curso</legend>
+                <input type="radio" name="opcao" value="online" id="online"><label for="online">EAD</label>
+                <input type="radio" name="opcao" value="presencial" id="presencial"><label for="presencial">presencial</label>
             </fieldset>
-
             <fieldset class="group">
                 <legend>Interesses</legend>
-                <input id="ecursos" type="checkbox" name="interesses" value="ecursos"><label for="ecursos">e-Cursos</label>
-                <input id="workshops" type="checkbox" name="interesses" value="workshops"><label for="workshops">workshops</label>
-                <input id="meetups" type="checkbox" name="interesses" value="meetups"><label for="meetups">meetups</label>
+                <input id="EAD" name="interesses" type="checkbox"><label for="EAD">EAD</label>
+                <input id="workshops" name="interesses" type="checkbox"><label for="workshops">Workshops</label>
+                <input id="meetups" name="interesses" type="checkbox"><label for="meetups">Meetups</label>
             </fieldset>
-
-            <input id="enviar" type="submit">
-
+            <input type="submit">
         </form>
     </main>
 </body>
-
 </html>

@@ -47,6 +47,20 @@ h1 {
     font-weight: 800;
 }
 
+p{
+    color:#f2f2f2;
+}
+
+a{
+    font-weight: bold;
+    text-decoration: none;
+    color: #7375f3;
+    cursor: pointer;
+}
+a:hover{
+    color: #9597f8;
+}
+
 h1::before {
     display: block;
     content: '';

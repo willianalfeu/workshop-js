@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Formulário de cadastro</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/script.js"></script>
+</head>
+
+<body>
+    <main>
+        <h1>Formulário de cadastro</h1>
+        <form id="formCadastro" onsubmit="return validar()" action="enviado.html">
+            <fieldset>
+                <label for="nome">Nome</label>
+                <input id="nome" type="text" placeholder="Digite seu nome" value="">
+            </fieldset>
+
+            <fieldset>
+                <label for="email">E-mail</label>
+                <input id="email" type="text" placeholder="Digite seu e-mail" value="">
+            </fieldset>
+
+            <fieldset>
+                <label for="celular">Celular</label>
+                <input id="celular" type="text" placeholder="Digite seu celular" value="">
+            </fieldset>
+
+            <fieldset>
+                <label for="curso">Curso</label>
+                <select id="curso" type="select" name="curso">
+                    <option value="">Escolha uma opção</option>
+                    <option value="1">Javascript</option>
+                    <option value="2">Java</option>
+                    <option value="3">Git avançado</option>
+                </select>
+            </fieldset>
+
+            <fieldset class="group">
+                <legend>Horário</legend>
+                <input id="manha" type="radio" name="horario" value="M"><label for="manha">manhã</label>
+                <input id="tarde" type="radio" name="horario" value="T"><label for="tarde">tarde</label>
+            </fieldset>
+
+            <fieldset class="group">
+                <legend>Interesses</legend>
+                <input id="ecursos" type="checkbox" name="interesses" value="ecursos"><label
+                    for="ecursos">e-Cursos</label>
+                <input id="workshops" type="checkbox" name="interesses" value="workshops"><label
+                    for="workshops">workshops</label>
+                <input id="meetups" type="checkbox" name="interesses" value="meetups"><label
+                    for="meetups">meetups</label>
+            </fieldset>
+
+            <input id="enviar" type="submit">
+
+        </form>
+    </main>
+</body>
+
+</html>
+<!-- <!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Formulário de cadastro</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/script.js"></script>
+</head>
+
+<body>
+    <main>
+        <h1>Formulário de cadastro</h1>
+        <form id="formCadastro" onsubmit="return validar()" action="enviado.html">
+            <fieldset>
+                <label for="nome">Nome</label>
+                <input id="nome" type="text" value="">
+            </fieldset>
+
+            <fieldset>
+                <label for="email">E-mail</label>
+                <input id="email" type="text" value="">
+            </fieldset>
+
+            <fieldset>
+                <label for="celular">Celular</label>
+                <input id="celular" type="text" value="">
+            </fieldset>
+
+            <fieldset>
+                <label for="curso">Curso</label>
+                <select id="curso" type="select" name="curso">
+                    <option value="">Escolha uma opção</option>
+                    <option value="1">Javascript</option>
+                    <option value="2">Java</option>
+                    <option value="3">Git avançado</option>
+                </select>
+            </fieldset>
+
+            <fieldset class="group">
+                <legend>Horário</legend>
+                <input id="manha" type="radio" name="horario" value="M"><label for="manha">manhã</label>
+                <input id="tarde" type="radio" name="horario" value="T"><label for="tarde">tarde</label>
+            </fieldset>
+
+            <fieldset class="group">
+                <legend>Interesses</legend>
+                <input id="ecursos" type="checkbox" name="interesses" value="ecursos"><label
+                    for="ecursos">e-Cursos</label>
+                <input id="workshops" type="checkbox" name="interesses" value="workshops"><label
+                    for="workshops">workshops</label>
+                <input id="meetups" type="checkbox" name="interesses" value="meetups"><label
+                    for="meetups">meetups</label>
+            </fieldset>
+
+            <input id="enviar" type="submit">
+
+        </form>
+    </main>
+</body>
+
+</html> -->

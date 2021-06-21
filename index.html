@@ -2,57 +2,71 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Formulário de cadastro</title>
-    <link rel="stylesheet" href="css/style.css">    
-</head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">      
+        <title> Formulário de Cadastro </title>
+        
 
+</head>    
 <body>
     <main>
         <h1>Formulário de cadastro</h1>
-        <form id="formCadastro" action="/enviado.html">
+        <form id="Form" onsubmit="return validar()" action="enviado.html">
             <fieldset>
-                <label for="nome">Nome</label>
-                <input id="nome" type="text" value="">
+                <label for="nome">Nome:</label>
+                <input type= "text" name="nome" id="nome">
+                <p id="nome_invalido"></p>
+                <p id="Caractere_invalido"></p>
             </fieldset>
 
             <fieldset>
-                <label for="email">E-mail</label>
-                <input id="email" type="text" value="">
+                <label for="sobrenome">Sobrenome:</label>
+                <input type= "text" name="sobrenome" id="sobrenome">
+                <p id="sobrenome_invalido"></p>
+                <p id="Caractere_invalido_Sobrenome"></p>
             </fieldset>
-
+            
             <fieldset>
-                <label for="celular">Celular</label>
-                <input id="celular" type="text" value="">
+                <label for="email">Email:</label>
+                <input type= "text" name="email" id="email">
+                <p id="email_invalido"></p>
             </fieldset>
-
+            
             <fieldset>
-                <label for="curso">Curso</label>
-                <select id="curso" type="select" name="curso">
-                    <option value="">Escolha uma opção</option>
-                    <option value="1">Javascript</option>
-                    <option value="2">Java</option>
-                    <option value="3">Git avançado</option>
+                <label for="celular">Celular:</label>
+                <input type= "text" name="celular" id="celular">
+                <p id="celular_invalido"></p>
+            </fieldset>
+            
+            <fieldset>
+                <label for="curso"> Cursos Disponíveis: </label>
+                <select id="curso" name="curso">
+                    <option value='0'>Selecione uma opção</option>
+                    <option value='1'>JavaScript</option>
+                    <option value='2'>Java</option>
+                    <option value='3'>Angular</option>
+                   
                 </select>
+                <p id="curso_invalido"></p>
             </fieldset>
-
-            <fieldset class="group">
-                <legend>Horário</legend>
-                <input id="manha" type="radio" name="horario" value="M"><label for="manha">manhã</label>
-                <input id="tarde" type="radio" name="horario" value="T"><label for="tarde">tarde</label>
-            </fieldset>
-
-            <fieldset class="group">
-                <legend>Interesses</legend>
-                <input id="ecursos" type="checkbox" name="interesses" value="ecursos"><label for="ecursos">e-Cursos</label>
-                <input id="workshops" type="checkbox" name="interesses" value="workshops"><label for="workshops">workshops</label>
-                <input id="meetups" type="checkbox" name="interesses" value="meetups"><label for="meetups">meetups</label>
-            </fieldset>
-
-            <input id="enviar" type="submit">
-
+                <fieldset>
+                    <legend> Modalidade de curso: </legend>
+                    <input type="radio" name="opcao" value="modalidade" class="modalidade"><label for="online">A distância</label>
+                    <input type="radio" name="opcao" value="modalidade" class="modalidade"><label for="presencial">Presencial</label>
+                    <p id="modalidade_invalida"></p>
+                </fieldset>
+                <fieldset>
+                    <legend> Interesses <i>(opcional)</i>: </legend>
+                    <input id="Newsletter" name="interesses" type="checkbox"> <label>Newsletter</label>
+                    <input id="workshops" name="interesses" type="checkbox"> <label>Workshops</label>
+                    <input id="Bootcamps" name="interesses" type="checkbox"> <label>Bootcamps</label>
+                </fieldset>
+                <button id="submit_button" type ="submit" disabled> ENVIAR </button>
         </form>
+        <script src="jquery-3.6.0.min.js"></script>
+        <script src="jscript.js"></script>
     </main>
 </body>
+
 
 </html>

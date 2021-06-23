@@ -16,16 +16,19 @@
             <fieldset>
                 <label for="nome">Nome</label>
                 <input id="nome" type="text" value="">
+                <p id="erroNome" class="erro">nome inválido</p>
             </fieldset>
 
             <fieldset>
                 <label for="email">E-mail</label>
                 <input id="email" type="text" value="">
+                <p id="erroEmail" class="erro">email inválido</p>
             </fieldset>
 
             <fieldset>
                 <label for="celular">Celular</label>
                 <input id="celular" type="text" value="">
+                <p id="erroCelular" class="erro">celular inválido</p>
             </fieldset>
 
             <fieldset>
@@ -36,12 +39,14 @@
                     <option value="2">Java</option>
                     <option value="3">Git avançado</option>
                 </select>
+                <p id="erroCurso" class="erro">curso inválido</p>
             </fieldset>
 
             <fieldset class="group">
                 <legend>Horário</legend>
                 <input id="manha" type="radio" name="horario" value="M"><label for="manha">manhã</label>
                 <input id="tarde" type="radio" name="horario" value="T"><label for="tarde">tarde</label>
+                <p id="erroHorario" class="erro">horario inválido</p>
             </fieldset>
 
             <fieldset class="group">
@@ -49,6 +54,7 @@
                 <input id="ead" type="checkbox" name="interesses" value="ead"><label for="ecursos">EAD</label>
                 <input id="workshops" type="checkbox" name="interesses" value="workshops"><label for="workshops">workshops</label>
                 <input id="meetups" type="checkbox" name="interesses" value="meetups"><label for="meetups">meetups</label>
+                <p id="erroInteresses" class="erro">marque pelo menos umas opção</p>
             </fieldset>
 
             <input id="enviar" type="submit">

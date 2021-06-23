@@ -8,47 +8,42 @@
         $(function(){ ... });
 */
 $(function () {
+    //esconde msgs ao abrir a tela
+    $(".erro").hide();
+
     $("#formCadastro").submit(function () {
         let ehValido = true;
-        limparErros();
 
-        let erro = $("<p>");
-        $(erro).addClass("erro")
+        $(".erro").hide();
 
         if ($("#nome").val() == "") {
             ehValido = false;
-            $(erro).html("nome inválido");
-            $(erro).clone().insertAfter($("#nome"));
+            $("#erroNome").show();
         }
 
         if ($("#email").val() == "") {
             ehValido = false;
-            $(erro).html("email inválido");
-            $(erro).clone().insertAfter($("#email"));
+            $("#erroEmail").show();
         }
 
         if ($("#celular").val() == "") {
             ehValido = false;
-            $(erro).html("celular inválido");
-            $(erro).clone().insertAfter($("#celular"));
+            $("#erroCelular").show();
         }
 
         if ($("#curso").val() == "") {
             ehValido = false;
-            $(erro).html("curso inválido");
-            $(erro).clone().insertAfter($("#curso"));
+            $("#erroCurso").show();
         }
 
         if ($("input[name=horario]:checked").length != 1) {
             ehValido = false;
-            $(erro).html("horario inválido");
-            $(erro).clone().insertAfter($("#manha").parent());
+            $("#erroHorario").show();
         }
 
         if ($("input[name=interesses]:checked").length == 0) {
             ehValido = false;
-            $(erro).html("marque pelo menos umas opção");
-            $(erro).clone().insertAfter($("#ead").parent());
+            $("#erroInteresses").show();
         }
 
         return ehValido;

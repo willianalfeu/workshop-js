@@ -21,7 +21,7 @@ $(window).on("load", function () {//(window == página html)essa function faz co
     //valida email
     function validaEmail() {
         let inputEmail = email.val();
-        var regexEmail = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
+        const regexEmail = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
         if (!regexEmail.test(inputEmail)) {//aqui o regex testa o valor digitado pelo usuário
             $(".pEmail").remove();
             $("<p style='color:#FC2727'>Email inválido</p>").addClass("pEmail").insertAfter(email);
@@ -35,7 +35,7 @@ $(window).on("load", function () {//(window == página html)essa function faz co
     //valida celular
     function validaCelular() {
         let inputCelular = celular.val();
-        var regexCelular = /[1-9]{2}[9]{1}\d{4}\d{4}/i;
+        const regexCelular = /[1-9]{2}[9]{1}\d{4}\d{4}/i;
         if (!regexCelular.test(inputCelular)) {
             $(".pCelular").remove();
             $("<p style='color:#FC2727'>Celular inválido, digite apenas o ddd com os 9 dígitos do número</p>").addClass("pCelular").insertAfter(celular);
@@ -92,11 +92,11 @@ $(window).on("load", function () {//(window == página html)essa function faz co
         if (qtdValidada < 0) {//(qtdValidada < 0) cada campo incorreto decrementa -1
             $(".pValidacoes").remove();
             $("<p style='color:#FC2727'>Verifique os valores não informados</p>").addClass("pValidacoes").insertAfter("#enviar");
-            console.log("valor de respostas preenchidas incorretamente: " + (-1 * qtdValidada));
+            // console.log("valor de respostas preenchidas incorretamente: " + (-1 * qtdValidada));
         } else {//(qtdValidada = 0) validação completada sem decrementos
             $(".pValidacoes").remove();
-            // window.location.href = "enviado.html";//envia para a próxima página
             $("#formCadastro").submit();//envia para a próxima página com jQuery
+            // window.location.href = "enviado.html";//envia para a próxima página
         }
         qtdValidada = 0;
     }

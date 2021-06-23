@@ -161,9 +161,15 @@ fieldset.group label {
 }
 
 span {
-  color: #ffd5d7;
+  font-weight: bolder;
+  color: #ff8181;
+  font-size: large;
   padding: 10px;
-  border-radius: 15px;;
+  border-radius: 15px;
+            text-shadow: -1px 1px 0 #000,
+                          1px 1px 0 #000,
+                         1px -1px 0 #000,
+                        -1px -1px 0 #000;
 }
 
 input[type="button"] {

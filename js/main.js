@@ -14,7 +14,8 @@ $(window).on("load", function () {
   let qtdValidacoesCorretas = 0;
 
   function testaNome() {
-    if (nome.val() == "") {
+    const regexNome = /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð,.'-]+$/i
+    if (!regexNome.test(nome.val())) {
       $("#erroNome").text("Nome inválido!").show();
     } else {
       $("#erroNome").text("Nome inválido!").hide();
@@ -22,7 +23,8 @@ $(window).on("load", function () {
     }
   }
   function testaSobrenome() {
-    if (sobrenome.val() == "") {
+    const regexSobrenome = /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/i
+    if (!regexSobrenome.test(sobrenome.val())) {
       $("#erroSobrenome").text("Sobrenome inválido!").show();
     } else {
       $("#erroSobrenome").text("Sobrenome inválido!").hide();
@@ -30,10 +32,10 @@ $(window).on("load", function () {
     }
   }
 
+
   function testaEmail() {
-    let = inputEmail=email.val();
     const regexEmail = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+.[A-Z]{2,4}\b$/i;
-    if (!regexEmail.test(inputEmail)) {
+    if (!regexEmail.test(email.val())) {
       $("#erroEmail").text("E-mail inválido!").show();
     } else {
       $("#erroEmail").text("E-mail inválido!").hide();
@@ -42,9 +44,8 @@ $(window).on("load", function () {
   }
 
   function testaCelular() {
-    let = inputCelular = celular.val()
-    const regexCelular = /\([1-9]{2,})\d{4,}-\d{4}/i;
-    if (!regexCelular.test(inputCelular)) {
+    const regexCelular = /\([1-9]{2}\)[9]{1}\d{4}-\d{4}/i;;
+    if (!regexCelular.test(celular.val())) {
       $("#erroCelular").text("Celular inválido!").show();
     } else {
       $("#erroCelular").text("Celular inválido!").hide();
@@ -158,11 +159,4 @@ $(window).on("load", function () {
     qtdValidacoesCorretas = 0;
   });
 
-  nome.click(testaNome);
-  sobrenome.click(testaSobrenome);
-  email.click(testaEmail);
-  celular.click(testaCelular);
-  curso.select(testaCurso);
-  enviar.select(testaHorario);
-  enviar.click(testaInteresses);
 });

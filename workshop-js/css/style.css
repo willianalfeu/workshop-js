@@ -144,10 +144,6 @@ fieldset.group label {
     margin: 0 15px 0 5px!important;
 }
 
-.erro {
-    color: #BC575A;
-}
-
 input[type=submit] {
     width: 100%;
     height: 45px;

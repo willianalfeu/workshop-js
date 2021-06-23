@@ -160,6 +160,10 @@ input[type=submit] {
     transition: all .5s ease-in-out;
 }
 
+#celular::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+}
+
 @keyframes introducao-animation {
     0% {
         transform: translateY(-50px);

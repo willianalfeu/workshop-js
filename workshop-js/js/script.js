@@ -32,29 +32,18 @@ $(window).on("load", function () {//(window == página html)essa function faz co
         }
     }
 
-    // valida celular
+    //valida celular
     function validaCelular() {
-        if (celular.val() == "") {
+        let inputCelular = celular.val();
+        var regexCelular = /[1-9]{2}[9]{1}\d{4}\d{4}/i;
+        if (!regexCelular.test(inputCelular)) {
             $(".pCelular").remove();
-            $("<p style='color:#FC2727'>Celular inválido</p>").addClass("pCelular").insertAfter(celular);
+            $("<p style='color:#FC2727'>Celular inválido, digite apenas o ddd com os 9 dígitos do número</p>").addClass("pCelular").insertAfter(celular);
             qtdValidada--;
         } else {
             $(".pCelular").remove();
         }
     }
-
-    //valida celular
-    // function validaCelular() {
-    //     let inputCelular = celular.val();
-    //     var regexCelular = /([1-9]{2,})\d{4,}-\d{4}/;
-    //     if (!regexCelular.test(inputCelular)) {
-    //         $(".pCelular").remove();
-    //         $("<p style='color:#FC2727'>Celular inválido</p>").addClass("pCelular").insertAfter(celular);
-    //         qtdValidada--;
-    //     } else {
-    //         $(".pCelular").remove();
-    //     }
-    // }
 
     //valida select   
     function validaCurso() {
@@ -106,7 +95,6 @@ $(window).on("load", function () {//(window == página html)essa function faz co
             console.log("valor de respostas preenchidas incorretamente: " + (-1 * qtdValidada));
         } else {//(qtdValidada = 0) validação completada sem decrementos
             $(".pValidacoes").remove();
-            console.log("você será redirecionado a outra página...");
             // window.location.href = "enviado.html";//envia para a próxima página
             $("#formCadastro").submit();//envia para a próxima página com jQuery
         }
@@ -118,4 +106,5 @@ $(window).on("load", function () {//(window == página html)essa function faz co
         event.preventDefault();//aqui eu modifico o comportamento padrão para impedir que seja redirecionado a próxima página automaticamente    
         verificarValidacoes();
     });
+    
 });

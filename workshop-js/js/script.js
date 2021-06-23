@@ -4,17 +4,17 @@ $(window).on("load", function () {//(window == página html)essa function faz co
     let celular = $("#celular");
     let curso = $("#curso");
     let redireciona = $(".redirecionarPagina");
-    let qtdValidacoes = 0;
+    let validacoesCorretas = 0;//essa variável recebe +1 a cada validação realizada com sucesso
 
     //valida nome
     function validaNome() {
         if (nome.val() == "") {
             //nome.after("<p>Nome inválido</p>").addClass(".pNome");//porque não é possível adicionar uma classe ao elemento criado desta forma?
             $(".pNome").remove();
-            $("<p style='color:#FC2727'>Nome inválido</p>").addClass("pNome").insertAfter(nome);
-            qtdValidacoes--;
+            $("<p>Nome inválido</p>").addClass("pNome erro").insertAfter(nome);
         } else {
             $(".pNome").remove();
+            validacoesCorretas++;
         }
     }
 
@@ -24,11 +24,11 @@ $(window).on("load", function () {//(window == página html)essa function faz co
         const regexEmail = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
         if (!regexEmail.test(inputEmail)) {//aqui o regex testa o valor digitado pelo usuário
             $(".pEmail").remove();
-            $("<p style='color:#FC2727'>Email inválido</p>").addClass("pEmail").insertAfter(email);
-            qtdValidacoes--;
+            $("<p>Email inválido</p>").addClass("pEmail erro").insertAfter(email);
         }
         else {
             $(".pEmail").remove();
+            validacoesCorretas++;
         }
     }
 
@@ -38,10 +38,10 @@ $(window).on("load", function () {//(window == página html)essa function faz co
         const regexCelular = /[1-9]{2}[9]{1}\d{4}\d{4}/i;
         if (!regexCelular.test(inputCelular)) {
             $(".pCelular").remove();
-            $("<p style='color:#FC2727'>Celular inválido, digite apenas o ddd com os 9 dígitos do número</p>").addClass("pCelular").insertAfter(celular);
-            qtdValidacoes--;
+            $("<p>Celular inválido, digite apenas o ddd com os 9 dígitos do número</p>").addClass("pCelular erro").insertAfter(celular);
         } else {
             $(".pCelular").remove();
+            validacoesCorretas++;
         }
     }
 
@@ -49,10 +49,10 @@ $(window).on("load", function () {//(window == página html)essa function faz co
     function validaCurso() {
         if ($(curso).val() == 0) {
             $(".pSelect").remove();
-            $("<p style='color:#FC2727'>Você precisa selecionar um item</p>").addClass("pSelect").insertAfter(curso);//cria o elemento
-            qtdValidacoes--;
+            $("<p>Você precisa selecionar um item</p>").addClass("pSelect erro").insertAfter(curso);//cria o elemento
         } else {
             $(".pSelect").remove();//remove o elemento
+            validacoesCorretas++;
         }
     }
 
@@ -61,10 +61,10 @@ $(window).on("load", function () {//(window == página html)essa function faz co
         let inputHorario = $("#radioHorario").find("input");//aqui eu desci na árvore do DOM e acessei os radios através do seu elemento "pai"
         if (!inputHorario.is(":checked")) {//se diferente de checked
             $(".pHorario").remove();
-            $("<p style='color:#FC2727'>É necessário selecionar um horário</p>").addClass("pHorario").insertAfter("#radioHorario");
-            qtdValidacoes--;
+            $("<p>É necessário selecionar um horário</p>").addClass("pHorario erro").insertAfter("#radioHorario");
         } else {
             $(".pHorario").remove();
+            validacoesCorretas++;
         }
     }
 
@@ -73,10 +73,10 @@ $(window).on("load", function () {//(window == página html)essa function faz co
         let inputInteresses = $("#interesses").find("input");//aqui eu desci na árvore do DOM e acessei os checks através do seu elemento "pai"
         if (!inputInteresses.is(":checked")) {//se diferente de checked
             $(".pInteresse").remove();
-            $("<p style='color:#FC2727'>É necessário selecionar ao menos um interesse</p>").addClass("pInteresse").insertAfter("#interesses");
-            qtdValidacoes--;
+            $("<p>É necessário selecionar ao menos um interesse</p>").addClass("pInteresse erro").insertAfter("#interesses");
         } else {
             $(".pInteresse").remove();
+            validacoesCorretas++;
         }
     }
 
@@ -89,16 +89,15 @@ $(window).on("load", function () {//(window == página html)essa function faz co
         validaHorario();
         validaInteresse();
 
-        if (qtdValidacoes < 0) {//(qtdValidada < 0) cada campo incorreto decrementa -1
+        if (validacoesCorretas < 6) {//(qtdValidada < 0) cada campo incorreto decrementa -1
             $(".pValidacoes").remove();
-            $("<p style='color:#FC2727'>Verifique os valores não informados</p>").addClass("pValidacoes").insertAfter("#enviar");
-            // console.log("valor de respostas preenchidas incorretamente: " + (-1 * qtdValidada));
-        } else {//(qtdValidada = 0) validação completada sem decrementos
+            $("<p>Verifique os valores não informados</p>").addClass("pValidacoes erro").insertAfter("#enviar");
+        } else {
             $(".pValidacoes").remove();
             $("#formCadastro").submit();//envia para a próxima página com jQuery
             // window.location.href = "enviado.html";//envia para a próxima página
         }
-        qtdValidacoes = 0;
+        validacoesCorretas = 0;
     }
 
     // Ao ser clicado da início as validações

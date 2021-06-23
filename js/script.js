@@ -1,97 +1,134 @@
-let form;
-function start() {
-    form = $("#formCadastro");
-    form.onsubmit = validar;
-    form.addEventListener("submit", validar);
-}
+$(window).on("load", function () {
 
-function limparErros() {
-    let arrayErros = document.getElementsByClassName("erro");
-    while (arrayErros.length > 0) {
-        let element = arrayErros[0];
-        element.remove();
+    let nome = $("#nome");
+    let email = $("#email");
+    let celular = $("#celular");
+    let curso = $("#curso");
+
+
+    $("#erroName").hide();
+    $("#erroEmail").hide();
+    $("#erroCelular").hide();
+    $("#erroCurso").hide();
+    $("#erroRadio").hide();
+    $("#errocheckbox").hide();
+    $("#erroEnviar").hide();
+    $("#erroName").hide();
+
+    let nomeFunciona = false;
+    let emailFunciona = false;
+    let celularFunciona = false;
+    let cursoFunciona = false;
+    let horarioFunciona = false;
+    let escolhaFunciona = false;
+
+    //validação de nome
+
+    function testeNome() {
+        if (nome.val() == "") {
+            $("#erroName").show();
+            nomeFunciona = false;
+        } else {
+            $("#erroName").hide();
+            nomeFunciona = true;
+        }
     }
-}
-function validarEmail(email) {
-    const re = /([a-z0-9_.]*\@([a-z]*)\.([a-z]{1,3})(\.[a-z]*)?)/g;
-    return re.test(email);
-}
-
-
-let validar = function () {
-
-    let valido = true;
-    let erro = document.createElement("div");
-    erro.className = "erro";
-
-    limparErros();
-
-    //validacao text
-    let name = $("#nome").val()
-    if (name == "") {
-        valido = false;
-        erro.textContent = "Nome inválido";
-        nome.after(erro.cloneNode(true));
-
+    //validação de E-mail
+    function validarEmail(email) {
+        const re = /([a-z0-9_.]*\@([a-z]*)\.([a-z]{1,3})(\.[a-z]*)?)/g;
+        return re.test(email);
     }
-
-    //validacao e-mail
-
-    let CorrreioEletronico = $("#email").val()
-
-    if (!validarEmail(CorrreioEletronico.toLowerCase())) {
-        valido = false;
-        erro.textContent = "E-mail inválido";
-        email.after(erro.cloneNode(true));
-
-    }
-
-
-    //valida telefone
-
-    let tell = $("#celular").val()
-    let tamanho_celular = tell.length
-
-
-    if (tell == "" || tamanho_celular != 11) {
-        valido = false;
-        erro.textContent = "Celular inválido";
-        celular.after(erro.cloneNode(true));
-
+    function testeEmail() {
+        if (!validarEmail(email.val())) {
+            $("#erroEmail").show();
+            emailFunciona = false;
+        } else {
+            $("#erroEmail").hide();
+            emailFunciona = true;
+        }
     }
 
-    //validação select
+    //validação de celular
 
-    let course = $("#curso").val()
+    let tamanhoNumero = $("#celular").val().length;
 
-    if (course == "") {
-        valido = false;
-        erro.textContent = "Curso inválido";
-        curso.after(erro.cloneNode(true));
-
+    function testeCelular() {
+        if (celular.val() == "" || $("#celular").val().length != 11) {
+            $("#erroCelular").show();
+            celularFunciona = false;
+        } else {
+            $("#erroCelular").hide();
+            celularFunciona = true;
+        }
     }
+    nome.focusout(testeNome);
+    email.focusout(testeEmail);
+    celular.focusout(testeCelular);
 
-    //validação radio 
-
-    let time = $(".group input[type=radio]:checked").val()
-
-    if (time == null) {
-        valido = false;
-        erro.textContent = "Por favor escolha um horario";
-        manha.parentElement.append(erro.cloneNode(true));
-
+    //validação de curso
+    function testeCurso() {
+        if (curso.val() == "") {
+            $("#erroCurso").show()
+            cursoFunciona = false;
+        } else {
+            $("#erroCurso").hide()
+            cursoFunciona = true;
+        }
     }
+    //validação de horario
+    function TesteHorario() {
+        if (!$("#manha:checked").is(':checked') &&
+            !$("#tarde:checked").is(':checked') &&
+            !$("#noite:checked").is(':checked')) {
 
-    //validação checkbox
-
-    let interests = $(".group input[type=checkbox]:checked").val()
-
-    if (interests == undefined) {
-        valido = false;
-        erro.textContent = "Selecione pelo menos uma opção";
-        document.getElementById("meetups").parentElement.append(erro.cloneNode(true));
+            $("#erroRadio").show()
+            horarioFunciona = false;
+        } else {
+            $("#erroRadio").hide()
+            horarioFunciona = true;
+        }
 
     }
 
-    return valido;
-}
+    //validação do tipo de curso
+    function testaEscolha() {
+        if (!$("#ecursos:checked").is(':checked') &&
+            !$("#workshops:checked").is(':checked') &&
+            !$("#meetups:checked").is(':checked')) {
+
+            $("#errocheckbox").show()
+            escolhaFunciona = false;
+        } else {
+            $("#errocheckbox").hide()
+            escolhaFunciona = true;
+        }
+    }
+    nome.focusout(testeNome);
+    email.focusout(testeEmail);
+    celular.focusout(testeCelular);
+    curso.focusout(testeCurso);
+
+    //validação do botão
+    $("#enviar").on("click", function () {
+        testeNome();
+        testeEmail();
+        testeCelular();
+        testeCurso();
+        testaEscolha();
+        TesteHorario();
+
+
+        if (nomeFunciona && emailFunciona && celularFunciona && cursoFunciona && horarioFunciona && escolhaFunciona) {
+            return true
+        } else {
+            $("#erroEnviar").show();
+            return false;
+        }
+
+    })
+
+
+})
+
+
+

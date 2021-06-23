@@ -12,20 +12,23 @@
 <body>
     <main>
         <h1>Formulário de cadastro</h1>
-        <form id="formCadastro" onsubmit="return validar()" action="enviado.html">
-            <fieldset>
+        <form id="formCadastro" action="/enviado.html">
+            <fieldset id="bloco_nome">
                 <label for="nome">Nome</label>
                 <input id="nome" type="text" value="" placeholder="Qual é o seu nome ?">
+                <p class="erro" id="erroName">nome invalido</p>
             </fieldset>
 
             <fieldset>
                 <label for="email">E-mail</label>
                 <input id="email" type="text" value="" placeholder="Qual é o seu e-mail ?">
+                <p class="erro" id="erroEmail">E-mail invalido</p>
             </fieldset>
 
             <fieldset>
                 <label for="celular">Celular</label>
                 <input id="celular" type="number" value="" placeholder="Qual é o seu Celular?">
+                <p class="erro" id="erroCelular">Celular invalido</p>
             </fieldset>
 
             <fieldset>
@@ -36,14 +39,16 @@
                     <option value="2">Java</option>
                     <option value="3">Git avançado</option>
                 </select>
+                <p class="erro" id="erroCurso">Escolha um curso</p>
             </fieldset>
 
-            <fieldset class="group">
+            <fieldset class="group" id="validacaoRadio">
                 <legend>Horario</legend>
                 <input id="manha" type="radio" name="horario" value="M"><label for="manha">Manhã</label>
                 <input id="tarde" type="radio" name="horario" value="T"><label for="tarde">Tarde</label>
                 <input id="noite" type="radio" name="horario" value="N"><label for="noite">Noite</label>
             </fieldset>
+            <p class="erro" id="erroRadio">Escolha um horario</p>
 
             <fieldset class="group" id="checkbox">
                 <legend>Interesses</legend>
@@ -53,8 +58,11 @@
                 <input id="meetups" type="checkbox" name="interesses" value="meetups"><label
                     for="meetups">Meetups</label>
             </fieldset>
+            <p class="erro" id="errocheckbox">Escolha ao menos um Interesses</p>
 
-            <input id="enviar" type="submit">
+            -- <input id="enviar" type="submit" />
+
+            <p class="erro" id="erroEnviar">Olhe novamente os campos</p>
 
         </form>
     </main>

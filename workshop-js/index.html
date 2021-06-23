@@ -12,6 +12,7 @@
 <body>
     <main>
         <h1>Formulário de cadastro</h1>
+        <!-- <form id="formCadastro" onsubmit="return validar()" action="enviado.html"> -->
         <form id="formCadastro" onsubmit="return validar()" action="enviado.html">
             <fieldset>
                 <label for="nome">Nome</label>
@@ -30,21 +31,22 @@
 
             <fieldset>
                 <label for="curso">Curso</label>
-                <select id="curso" type="select" name="curso">
-                    <option value="">Escolha uma opção</option>
+                <select type="select" class="design" id="curso" name="curso" >
+                    <option value="0">Escolha uma opção</option>
                     <option value="1">Javascript</option>
                     <option value="2">Java</option>
                     <option value="3">Git avançado</option>
                 </select>
+            
             </fieldset>
 
-            <fieldset class="group">
+            <fieldset class="group" id="radioHorario">
                 <legend>Horário</legend>
                 <input id="manha" type="radio" name="horario" value="M"><label for="manha">manhã</label>
                 <input id="tarde" type="radio" name="horario" value="T"><label for="tarde">tarde</label>
             </fieldset>
 
-            <fieldset class="group">
+            <fieldset class="group" id="interesses">
                 <legend>Interesses</legend>
                 <input id="ecursos" type="checkbox" name="interesses" value="ecursos"><label
                     for="ecursos">e-Cursos</label>
@@ -55,7 +57,8 @@
             </fieldset>
 
             <input id="enviar" type="submit">
-
+            <p class="redirecionarPagina">Enviar</p>
+            
         </form>
     </main>
 </body>

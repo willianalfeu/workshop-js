@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Formulário de cadastro</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.mask.js"></script>
+    <script src="js/main.js"></script>
+  </head>
+
+  <body>
+    <main>
+      <h1>Formulário de cadastro</h1>
+      <form id="formCadastro">
+        <fieldset>
+          <label for="nome">Nome</label>
+          <input id="nome" type="text" value="" placeholder="Insira seu nome" />
+          <span id="erroNome"></span>
+        </fieldset>
+
+        <fieldset>
+          <label for="sobrenome">Sobrenome</label>
+          <input
+            id="sobrenome"
+            type="text"
+            value=""
+            placeholder="Insira seu sobrenome"
+          />
+          <span id="erroSobrenome"></span>
+        </fieldset>
+
+        <fieldset>
+          <label for="email">E-mail</label>
+          <input
+            id="email"
+            type="email"
+            value=""
+            placeholder="Insira seu e-mail"
+          />
+          <span id="erroEmail"></span>
+        </fieldset>
+
+        <fieldset>
+          <label for="celular">Celular</label>
+          <input
+            id="celular"
+            type="tel"
+            value=""
+            placeholder="(xx)xxxxx-xxxx"
+          />
+          <span id="erroCelular"></span>
+        </fieldset>
+
+        <fieldset>
+          <label for="curso">Curso</label>
+          <select id="curso" type="select" name="curso">
+            <option value="">Escolha um opção</option>
+            <option value="0">Javascript</option>
+            <option value="0">Java</option>
+            <option value="0">Git avançado</option>
+          </select>
+          <span id="erroCurso"></span>
+        </fieldset>
+
+        <fieldset class="group" id="radioHorario">
+          <legend>Horário</legend>
+          <input id="manha" type="radio" name="horario" value="M" />
+          <label for="manha">Manhã</label>
+          <input id="tarde" type="radio" name="horario" value="T" />
+          <label for="tarde">Tarde</label>
+          <span id="erroHorario"></span>
+        </fieldset>
+
+        <fieldset class="group" id="checkboxInteresses">
+          <legend>Interesses</legend>
+          <input id="ead" type="checkbox" name="interesses" value="1" />
+          <label for="ead">EAD</label>
+          <input
+            id="workshops"
+            type="checkbox"
+            name="interesses"
+            value="2"
+          /><label for="workshops">workshops</label>
+          <input
+            id="meetups"
+            type="checkbox"
+            name="interesses"
+            value="3"
+          /><label for="meetups">meetups</label>
+          <span id="erroInteresses"></span>
+        </fieldset>
+
+        <input id="enviar" type="button" value="Enviar" />
+        <span id="erroEnviar"></span>
+      </form>
+    </main>
+  </body>
+</html>

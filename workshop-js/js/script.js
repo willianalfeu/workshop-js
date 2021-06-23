@@ -83,22 +83,23 @@ $(window).on("load", function () {//(window == página html)essa function faz co
         validaCurso();
         validaHorario();
         validaInteresse();
-        
+
         if (qtdValidada < 0) {//(qtdValidada < 0) cada campo incorreto decrementa -1
             $(".pValidacoes").remove();
             $("<p style='color:#FC2727'>Verifique os valores não informados</p>").addClass("pValidacoes").insertAfter("#enviar");
-            console.log("valor de respostas preenchidas incorretamente: "+ (-1*qtdValidada));
+            console.log("valor de respostas preenchidas incorretamente: " + (-1 * qtdValidada));
         } else {//(qtdValidada = 0) validação completada sem decrementos
             $(".pValidacoes").remove();
             console.log("você será redirecionado a outra página...");
+            // window.location.href = "enviado.html";//envia para a próxima página
+            $("#formCadastro").submit();//envia para a próxima página com jQuery
         }
         qtdValidada = 0;
     }
 
-    //Ao ser clicado da início as validações
+    // Ao ser clicado da início as validações
     redireciona.on("click", function () {
+        event.preventDefault();//aqui eu modifico o comportamento padrão para impedir que seja redirecionado a próxima página automaticamente    
         verificarValidacoes();
-        // testeFunction();
     });
-    
 });

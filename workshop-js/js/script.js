@@ -20,16 +20,19 @@ $(window).on("load", function () {//(window == página html)essa function faz co
 
     //valida email
     function validaEmail() {
-        if (email.val() == "") {
+        let inputEmail = email.val();
+        var regexEmail = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
+        if (!regexEmail.test(inputEmail)) {//aqui o regex testa o valor digitado pelo usuário
             $(".pEmail").remove();
             $("<p style='color:#FC2727'>Email inválido</p>").addClass("pEmail").insertAfter(email);
             qtdValidada--;
-        } else {
+        }
+        else {
             $(".pEmail").remove();
         }
     }
 
-    //valida celular
+    // valida celular
     function validaCelular() {
         if (celular.val() == "") {
             $(".pCelular").remove();
@@ -39,6 +42,19 @@ $(window).on("load", function () {//(window == página html)essa function faz co
             $(".pCelular").remove();
         }
     }
+
+    //valida celular
+    // function validaCelular() {
+    //     let inputCelular = celular.val();
+    //     var regexCelular = /([1-9]{2,})\d{4,}-\d{4}/;
+    //     if (!regexCelular.test(inputCelular)) {
+    //         $(".pCelular").remove();
+    //         $("<p style='color:#FC2727'>Celular inválido</p>").addClass("pCelular").insertAfter(celular);
+    //         qtdValidada--;
+    //     } else {
+    //         $(".pCelular").remove();
+    //     }
+    // }
 
     //valida select   
     function validaCurso() {

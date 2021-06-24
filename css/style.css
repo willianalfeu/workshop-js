@@ -161,18 +161,12 @@ fieldset.group label {
 }
 
 span {
-  font-weight: bolder;
-  color: #ff8181;
-  font-size: large;
+  color: #ffd5d7;
   padding: 10px;
-  border-radius: 15px;
-            text-shadow: -1px 1px 0 #000,
-                          1px 1px 0 #000,
-                         1px -1px 0 #000,
-                        -1px -1px 0 #000;
+  border-radius: 15px;;
 }
 
-input[type="button"] {
+input[type="submit"] {
   width: 100%;
   height: 45px;
   border-radius: 15px;

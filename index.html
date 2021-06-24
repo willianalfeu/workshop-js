@@ -12,11 +12,11 @@
   <body>
     <main>
       <h1>Formulário de cadastro</h1>
-      <form id="formCadastro">
+      <form id="formCadastro" action="/enviado.html">
         <fieldset>
           <label for="nome">Nome</label>
-          <input id="nome" type="text" value="" placeholder="Insira seu Primeiro nome" />
-          <span id="erroNome"></span>
+          <input id="nome" type="text" value="" placeholder="Insira seu nome" />
+          <span id="erroNome" class="erro">Nome inválido!</span>
         </fieldset>
 
         <fieldset>
@@ -27,18 +27,18 @@
             value=""
             placeholder="Insira seu sobrenome"
           />
-          <span id="erroSobrenome"></span>
+          <span id="erroSobrenome" class="erro">Sobrenome inválido!</span>
         </fieldset>
 
         <fieldset>
-          <label for="email">E-mail</label>
+          <label for="email" >E-mail</label>
           <input
             id="email"
             type="email"
             value=""
             placeholder="Insira seu e-mail"
           />
-          <span id="erroEmail"></span>
+          <span id="erroEmail" class="erro">E-mail inválido!</span>
         </fieldset>
 
         <fieldset>
@@ -49,18 +49,18 @@
             value=""
             placeholder="(xx)xxxxx-xxxx"
           />
-          <span id="erroCelular"></span>
+          <span id="erroCelular" class="erro">Celular inválido!</span>
         </fieldset>
 
         <fieldset>
           <label for="curso">Curso</label>
           <select id="curso" type="select" name="curso">
             <option value="">Escolha um opção</option>
-            <option value="0">Javascript</option>
-            <option value="0">Java</option>
-            <option value="0">Git avançado</option>
+            <option value="1">Javascript</option>
+            <option value="2">Java</option>
+            <option value="3">Git avançado</option>
           </select>
-          <span id="erroCurso"></span>
+          <span id="erroCurso" class="erro">Curso inválido!</span>
         </fieldset>
 
         <fieldset class="group" id="radioHorario">
@@ -69,30 +69,30 @@
           <label for="manha">Manhã</label>
           <input id="tarde" type="radio" name="horario" value="T" />
           <label for="tarde">Tarde</label>
-          <span id="erroHorario"></span>
+          <span id="erroHorario" class="erro">Horário inválido!</span>
         </fieldset>
 
         <fieldset class="group" id="checkboxInteresses">
           <legend>Interesses</legend>
-          <input id="ead" type="checkbox" name="interesses" value="1" />
+          <input id="ead" type="checkbox" name="interesses" value="ead" />
           <label for="ead">EAD</label>
           <input
             id="workshops"
             type="checkbox"
             name="interesses"
-            value="2"
+            value="workshops"
           /><label for="workshops">workshops</label>
           <input
             id="meetups"
             type="checkbox"
             name="interesses"
-            value="3"
+            value="meetups"
           /><label for="meetups">meetups</label>
-          <span id="erroInteresses"></span>
+          <span id="erroInteresses" class="erro">Selecione um campo</span>
         </fieldset>
 
-        <input id="enviar" type="button" value="Enviar" />
-        <span id="erroEnviar"></span>
+        <input id="enviar" type="submit" />
+        <span id="erroEnviar" class="erro"></span>
       </form>
     </main>
   </body>

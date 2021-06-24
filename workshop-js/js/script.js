@@ -3,12 +3,18 @@ $(window).on("load", function () {//(window == página html)essa function faz co
     let email = $("#email");
     let celular = $("#celular");
     let curso = $("#curso");
-    let redireciona = $(".redirecionarPagina");
+    let redireciona = $(".redirecionaPagina");
     let validacoesCorretas = 0;//essa variável recebe +1 a cada validação realizada com sucesso
+
+    // Ao ser clicado da início as validações
+    redireciona.on("click", function () {
+        event.preventDefault();//aqui eu modifico o comportamento padrão para impedir que seja redirecionado a próxima página automaticamente    
+        verificarValidacoes();
+    });
 
     //valida nome
     function validaNome() {
-        if (nome.val() == "") {
+        if (nome.val().length < 1) {
             //nome.after("<p>Nome inválido</p>").addClass(".pNome");//porque não é possível adicionar uma classe ao elemento criado desta forma?
             $(".pNome").remove();
             $("<p>Nome inválido</p>").addClass("pNome erro").insertAfter(nome);
@@ -70,8 +76,8 @@ $(window).on("load", function () {//(window == página html)essa function faz co
 
     //valida checkbox
     function validaInteresse() {
-        let inputInteresses = $("#interesses").find("input");//aqui eu desci na árvore do DOM e acessei os checks através do seu elemento "pai"
-        if (!inputInteresses.is(":checked")) {//se diferente de checked
+        let inputInteresse = $("#interesses").find("input");//aqui eu desci na árvore do DOM e acessei os checks através do seu elemento "pai"
+        if (!inputInteresse.is(":checked")) {//se diferente de checked
             $(".pInteresse").remove();
             $("<p>É necessário selecionar ao menos um interesse</p>").addClass("pInteresse erro").insertAfter("#interesses");
         } else {
@@ -89,21 +95,15 @@ $(window).on("load", function () {//(window == página html)essa function faz co
         validaHorario();
         validaInteresse();
 
-        if (validacoesCorretas < 6) {//(qtdValidada < 0) cada campo incorreto decrementa -1
+        if (validacoesCorretas < 6) {
             $(".pValidacoes").remove();
             $("<p>Verifique os valores não informados</p>").addClass("pValidacoes erro").insertAfter("#enviar");
         } else {
             $(".pValidacoes").remove();
-            $("#formCadastro").submit();//envia para a próxima página com jQuery
+            $("#formCadastro").submit();//força o envio para a próxima página com jQuery
             // window.location.href = "enviado.html";//envia para a próxima página
         }
         validacoesCorretas = 0;
     }
-
-    // Ao ser clicado da início as validações
-    redireciona.on("click", function () {
-        event.preventDefault();//aqui eu modifico o comportamento padrão para impedir que seja redirecionado a próxima página automaticamente    
-        verificarValidacoes();
-    });
 
 });
